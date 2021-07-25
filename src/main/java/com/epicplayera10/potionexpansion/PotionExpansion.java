@@ -4,7 +4,8 @@ import com.epicplayera10.potionexpansion.commands.PotionExpansionCommand;
 import com.epicplayera10.potionexpansion.commands.PotionExpansionTab;
 import com.epicplayera10.potionexpansion.listeners.DrinkMilkListener;
 import com.epicplayera10.potionexpansion.tasks.EffectsTask;
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
+import me.mrCookieSlime.Slimefun.cscorelib2.updater.Updater;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -26,6 +27,11 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
         instance = this;
 
         Config cfg = new Config(this);
+
+        if (cfg.getBoolean("auto-update")) {
+            Updater updater = new GitHubBuildsUpdater(this, this.getFile(), "EpicPlayerA10/PotionExpansion/master");
+            updater.start();
+        }
 
         Settings.load(cfg);
 
