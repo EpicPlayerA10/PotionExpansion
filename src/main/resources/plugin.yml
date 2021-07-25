@@ -23,3 +23,8 @@ api-version: 1.14
 ## This is required and marks Slimefun as a plugin dependency.
 depend:
 - Slimefun
+
+commands:
+  potionexpansion:
+    description: Main command of this addon.
+    aliases: [pe]
