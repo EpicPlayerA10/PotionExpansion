@@ -17,3 +17,7 @@ The idea of this addon is from [Potions Master](https://www.curseforge.com/minec
 ## Download
 You can download this addon from [here](https://github.com/EpicPlayerA10/PotionExpansion/releases).
 Supports 1.14 - 1.17.1!
+
+## Commands
+Main command is `/pe`
+- `/pe showEffects` - Shows effects in chat
