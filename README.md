@@ -15,8 +15,11 @@ The idea of this addon is from [Potions Master](https://www.curseforge.com/minec
 - CopperSight
 
 ## Download
-You can download this addon from [here](https://github.com/EpicPlayerA10/PotionExpansion/releases).
-Supports 1.14 - 1.17.1!
+You can download this addon from here:<br>
+
+<p align="center">
+  <a href="https://thebusybiscuit.github.io/builds/EpicPlayerA10/PotionExpansion/master"><img src="https://thebusybiscuit.github.io/builds/EpicPlayerA10/PotionExpansion/master/badge.svg" alt="Build Status"/></a>
+</p>
 
 ## Commands
 Main command is `/pe`
