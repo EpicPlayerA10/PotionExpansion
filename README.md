@@ -20,7 +20,7 @@ Supports 1.14 - 1.17.1!
 
 ## Commands
 Main command is `/pe`
-- `/pe showEffects` - Shows effects in chat (Custom effects are automatically shown on actionbar by default)
+- `/pe showEffects` - Shows custom effects in chat (Custom effects are automatically shown on actionbar by default)
 
 ## Configuration
 Click [here](https://github.com/EpicPlayerA10/PotionExpansion/wiki).
