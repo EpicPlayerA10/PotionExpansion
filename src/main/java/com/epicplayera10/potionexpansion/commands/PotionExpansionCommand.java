@@ -2,7 +2,9 @@ package com.epicplayera10.potionexpansion.commands;
 
 import com.epicplayera10.potionexpansion.PotionExpansion;
 import com.epicplayera10.potionexpansion.api.effects.EffectsManager;
+
 import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

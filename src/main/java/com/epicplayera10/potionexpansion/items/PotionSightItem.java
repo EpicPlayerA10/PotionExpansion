@@ -3,8 +3,8 @@ package com.epicplayera10.potionexpansion.items;
 import com.epicplayera10.potionexpansion.Settings;
 import com.epicplayera10.potionexpansion.api.effects.PotionSightEffect;
 import com.epicplayera10.potionexpansion.api.effects.PotionSightType;
-
 import com.epicplayera10.potionexpansion.api.effects.EffectsManager;
+
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemConsumptionHandler;
 
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;

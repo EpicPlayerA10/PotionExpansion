@@ -1,7 +1,9 @@
 package com.epicplayera10.potionexpansion.utils;
 
 import me.mrCookieSlime.Slimefun.cscorelib2.blocks.Vein;
+
 import org.apache.commons.lang.Validate;
+
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -12,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+
 import java.util.ArrayList;
 import java.util.List;
 

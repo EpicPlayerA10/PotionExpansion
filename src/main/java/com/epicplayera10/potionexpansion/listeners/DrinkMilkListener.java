@@ -1,6 +1,7 @@
 package com.epicplayera10.potionexpansion.listeners;
 
 import com.epicplayera10.potionexpansion.api.effects.EffectsManager;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
