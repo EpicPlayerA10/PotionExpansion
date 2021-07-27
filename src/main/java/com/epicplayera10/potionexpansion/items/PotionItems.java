@@ -44,7 +44,7 @@ public class PotionItems {
             Material.BREWING_STAND,
             "&6炼药台",
             "&a&o此物品和酿造台一样的操作,但他能制作特殊的药剂",
-            "&a&o喝下此药水后,会感应到附近相对应的矿石"
+            "&a&o喝下药水后,会感应到附近相对应的矿石"
     );
 
     // Powders
