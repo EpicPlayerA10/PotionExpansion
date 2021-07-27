@@ -26,7 +26,7 @@ public class PotionsItemSetup {
         powdersSetup(plugin);
         potionsSetup(plugin);
 
-        plugin.getLogger().info("Loaded items!");
+        plugin.getLogger().info("寻找到矿石!");
     }
 
     private static void potionsSetup(@Nonnull PotionExpansion plugin) {
