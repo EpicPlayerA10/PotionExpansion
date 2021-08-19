@@ -39,18 +39,17 @@ public class EffectsTask extends BukkitRunnable {
 
                 List<PotionSightEffect> effects = EffectsManager.getPlayerEffects(player);
 
-                effects.removeIf(effect -> effect.getTime() < 0);
-
-                if (effects.size() == 0) {
-                    EffectsManager.removePlayer(player.getUniqueId());
-                    continue;
-                }
-
                 effects.forEach(effect -> effect.setTime(effect.getTime() - 1));
 
                 showEffects(player, true);
 
                 tick(player, effects);
+
+                effects.removeIf(effect -> effect.getTime() <= 0);
+
+                if (effects.size() == 0) {
+                    EffectsManager.removePlayer(player.getUniqueId());
+                }
             }
         }
     }
