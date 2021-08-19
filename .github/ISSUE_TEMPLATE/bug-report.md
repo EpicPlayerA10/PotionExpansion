@@ -2,7 +2,7 @@
 name: Bug Report
 about: Report a Bug or an Issue with this Plugin.
 title: ''
-labels: bug
+labels: 🏮 Bug Report
 assignees: ''
 
 ---
@@ -28,6 +28,5 @@ assignees: ''
 <!-- You can also just run "/sf versions" and show us a screenshot of that. -->
 
  - Minecraft Version:
- - CS-CoreLib Version:
  - Slimefun Version:
  - Plugin Version: 
