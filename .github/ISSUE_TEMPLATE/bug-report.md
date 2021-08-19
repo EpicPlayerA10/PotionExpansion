@@ -23,10 +23,4 @@ assignees: ''
 <!-- We may discard your Issue if you just post it here, as it's unreadable for us. Please use Pastebin! -->
 
 ## Environment (Required)
-<!-- We may also close your Issue if you are not providing the exact version numbers. -->
-<!-- "latest" IS NOT A VERSION NUMBER. -->
-<!-- You can also just run "/sf versions" and show us a screenshot of that. -->
-
- - Minecraft Version:
- - Slimefun Version:
- - Plugin Version: 
+<!-- Run "/sf versions" and show us a screenshot of that. -->
