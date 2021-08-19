@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AlchemicStation extends MultiBlockMachine {
@@ -75,16 +74,13 @@ public class AlchemicStation extends MultiBlockMachine {
     }
 
     @Nullable
-    private AlchemicRecipe checkRecipe(@Nonnull List<ItemStack> input) {
-        ItemStack ingredient = input.get(INGREDIENT_SLOT);
-        ItemStack potion1 = input.get(POTION_1_SLOT);
-        ItemStack potion2 = input.get(POTION_2_SLOT);
-        ItemStack potion3 = input.get(POTION_3_SLOT);
+    private AlchemicRecipe checkRecipe(@Nonnull Inventory input) {
+        ItemStack ingredient = input.getItem(INGREDIENT_SLOT);
 
         if (ingredient != null) {
             for (AlchemicRecipe recipe : recipes) {
                 if (SlimefunUtils.isItemSimilar(ingredient, recipe.getIngredient(), true)) {
-                    if (checkPotionSlot(recipe, potion1) || checkPotionSlot(recipe, potion2) || checkPotionSlot(recipe, potion3)) {
+                    if (anyValidPotionSlot(recipe, input)) {
                         return recipe;
                     }
                 }
@@ -92,11 +88,6 @@ public class AlchemicStation extends MultiBlockMachine {
             }
         }
         return null;
-    }
-
-    @Nullable
-    private AlchemicRecipe checkRecipe(@Nonnull Inventory inv) {
-        return checkRecipe(Arrays.asList(inv.getContents()));
     }
 
     private List<Block> getWhiteGlassBlocks(@Nonnull Block block) {
@@ -132,8 +123,14 @@ public class AlchemicStation extends MultiBlockMachine {
                         world.playEffect(glassBlock.getLocation().clone().add(0.5, 0, 0.5), Effect.SMOKE, BlockFace.UP);
                     });
                 } else {
-                    b.getWorld().playSound(b.getLocation(), Sound.BLOCK_BREWING_STAND_BREW, 1f, 0.1f);
-                    brew(recipe, dispInv);
+                    World world = b.getWorld();
+                    if (anyValidPotionSlot(recipe, dispInv)) {
+                        world.playSound(b.getLocation(), Sound.BLOCK_BREWING_STAND_BREW, 1f, 0.1f);
+                        brew(recipe, dispInv);
+                    } else {
+                        world.playSound(b.getLocation(), Sound.ENTITY_ZOMBIE_VILLAGER_HURT, 1f, 0.5f);
+                        world.dropItemNaturally(b.getLocation(), recipe.getIngredient());
+                    }
                 }
             }, i * 20L);
         }
@@ -146,6 +143,16 @@ public class AlchemicStation extends MultiBlockMachine {
                 dispInv.setItem(i, recipe.getOutput());
             }
         }
+    }
+
+    @ParametersAreNonnullByDefault
+    private boolean anyValidPotionSlot(AlchemicRecipe recipe, Inventory dispInv) {
+        for (int i = POTION_1_SLOT; i < POTION_3_SLOT + 1; i++) {
+            if (checkPotionSlot(recipe, dispInv.getItem(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean checkPotionSlot(@Nonnull AlchemicRecipe recipe, @Nullable ItemStack item) {
