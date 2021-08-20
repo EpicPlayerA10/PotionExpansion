@@ -22,6 +22,6 @@ public class ResearchSetup {
                 .addItems(PotionItems.ALCHEMIC_STATION)
                 .register();
 
-        plugin.getLogger().info("解锁研究!");
+        plugin.getLogger().info("PE加载成功!");
     }
 }

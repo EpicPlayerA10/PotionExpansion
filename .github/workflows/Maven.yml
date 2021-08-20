@@ -34,6 +34,6 @@ jobs:
         if: success()
         with:
           name: Artifact
-          path: target/PotionExpansion v2 zh-CN.jar
+          path: target/PotionExpansion v4 zh-CN.jar
 # 注意要和打包出来的一致
 # 注意要和打包出来的一致
