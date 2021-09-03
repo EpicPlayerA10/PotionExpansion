@@ -27,6 +27,3 @@ Main command is `/pe`
 
 ## Configuration
 Click [here](https://github.com/EpicPlayerA10/PotionExpansion/wiki).
-
-## TODO
-- Brew normal potions in alchemic station.
