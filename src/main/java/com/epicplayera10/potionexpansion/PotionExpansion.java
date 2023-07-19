@@ -7,7 +7,6 @@ import com.epicplayera10.potionexpansion.tasks.EffectsTask;
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
-import org.apache.commons.lang.Validate;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -48,7 +47,6 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
         getCommand("pe").setExecutor(new PotionExpansionCommand());
 
         getCommand("potionexpansion").setTabCompleter(new PotionExpansionTab());
-        getCommand("pe").setTabCompleter(new PotionExpansionTab());
     }
 
     @Override
@@ -75,8 +73,7 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
     }
 
     public static @Nullable BukkitTask runSync(@Nonnull Runnable runnable, long delay) {
-        Validate.notNull(runnable, "Cannot run null");
-        Validate.isTrue(delay >= 0, "The delay cannot be negative");
+        assert delay >= 0;
 
         if (instance == null || !instance.isEnabled()) {
             return null;

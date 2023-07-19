@@ -18,15 +18,17 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
+import java.util.Arrays;
+
 public class PotionItems {
 
-    //Normal Items
+    // Normal Items
     public static final ItemStack mundanePotion = new CustomItemStack(Material.POTION, (itemMeta -> {
         PotionMeta meta = (PotionMeta) itemMeta;
         meta.setBasePotionData(new PotionData(PotionType.MUNDANE));
     }));
 
-    //Categories
+    // Categories
     public static final ItemGroup potionCategory = new ItemGroup(new NamespacedKey(PotionExpansion.getInstance(),
             "potionexpansion"),
             new CustomItemStack(Material.POTION, itemMeta -> {
@@ -38,11 +40,24 @@ public class PotionItems {
             })
     );
 
-    //Items
+    // Items
     public static final SlimefunItemStack ALCHEMIC_STATION = new SlimefunItemStack("ALCHEMIC_STATION",
             Material.BREWING_STAND,
             "&6Alchemic Station",
             "&a&oWorks like normal brewing stand but can make sight potions."
+    );
+
+    public static final SlimefunItemStack PESTLE = new SlimefunItemStack("PESTLE",
+            Material.FLINT,
+            "&f&lPestle",
+            meta -> {
+                meta.setLore(Arrays.asList(
+                        ChatColors.color("&a&oYou can crush ores by using it"),
+                        ChatColors.color("&c&lIt is disposable")
+                ));
+                meta.addEnchant(Enchantment.DURABILITY, 1, true);
+                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            }
     );
 
     // Powders
