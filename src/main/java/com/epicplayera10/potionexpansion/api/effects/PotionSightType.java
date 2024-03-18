@@ -1,33 +1,38 @@
 package com.epicplayera10.potionexpansion.api.effects;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public enum PotionSightType {
-    COAL_SIGHT(Color.BLACK, Material.COAL_ORE, Material.getMaterial("DEEPSLATE_COAL_ORE")),
-    IRON_SIGHT(Color.SILVER, Material.IRON_ORE, Material.getMaterial("DEEPSLATE_IRON_ORE")),
-    DIAMOND_SIGHT(Color.AQUA, Material.DIAMOND_ORE, Material.getMaterial("DEEPSLATE_DIAMOND_ORE")),
-    GOLD_SIGHT(Color.YELLOW, Material.GOLD_ORE, Material.getMaterial("DEEPSLATE_GOLD_ORE"), Material.getMaterial("NETHER_GOLD_ORE")),
-    LAPIS_SIGHT(Color.BLUE, Material.LAPIS_ORE, Material.getMaterial("DEEPSLATE_LAPIS_ORE")),
-    REDSTONE_SIGHT(Color.RED, Material.REDSTONE_ORE, Material.getMaterial("DEEPSLATE_REDSTONE_ORE")),
-    EMERALD_SIGHT(Color.GREEN, Material.EMERALD_ORE, Material.getMaterial("DEEPSLATE_EMERALD_ORE")),
-    QUARTZ_SIGHT(Color.WHITE, Material.NETHER_QUARTZ_ORE),
-    ANCIENT_DEBRIS_SIGHT(Color.fromRGB(42, 0, 0), Material.getMaterial("ANCIENT_DEBRIS")),
-    COPPER_SIGHT(Color.ORANGE, Material.getMaterial("COPPER_ORE"), Material.getMaterial("DEEPSLATE_COPPER_ORE"));
+    COAL_SIGHT(ChatColor.BLACK, Material.COAL_ORE, Material.getMaterial("DEEPSLATE_COAL_ORE")),
+    IRON_SIGHT(ChatColor.GRAY, Material.IRON_ORE, Material.getMaterial("DEEPSLATE_IRON_ORE")),
+    DIAMOND_SIGHT(ChatColor.AQUA, Material.DIAMOND_ORE, Material.getMaterial("DEEPSLATE_DIAMOND_ORE")),
+    GOLD_SIGHT(ChatColor.YELLOW, Material.GOLD_ORE, Material.getMaterial("DEEPSLATE_GOLD_ORE"), Material.getMaterial("NETHER_GOLD_ORE")),
+    LAPIS_SIGHT(ChatColor.BLUE, Material.LAPIS_ORE, Material.getMaterial("DEEPSLATE_LAPIS_ORE")),
+    REDSTONE_SIGHT(ChatColor.RED, Material.REDSTONE_ORE, Material.getMaterial("DEEPSLATE_REDSTONE_ORE")),
+    EMERALD_SIGHT(ChatColor.GREEN, Material.EMERALD_ORE, Material.getMaterial("DEEPSLATE_EMERALD_ORE")),
+    QUARTZ_SIGHT(ChatColor.WHITE, Material.NETHER_QUARTZ_ORE),
+    ANCIENT_DEBRIS_SIGHT(ChatColor.DARK_RED, Material.getMaterial("ANCIENT_DEBRIS")),
+    COPPER_SIGHT(ChatColor.GOLD, Material.getMaterial("COPPER_ORE"), Material.getMaterial("DEEPSLATE_COPPER_ORE"));
 
     private final Material[] ores;
-    private final Color color;
+    private final ChatColor color;
 
-    PotionSightType(@Nonnull Color color, @Nullable Material... ores) {
+    PotionSightType(ChatColor color, @Nullable Material... ores) {
         this.color = color;
         this.ores = ores;
     }
 
-    public Color getColor() {
+    public ChatColor getChatColor() {
         return color;
+    }
+
+    public Color getBukkitColor() {
+        java.awt.Color awtColor = color.asBungee().getColor();
+        return Color.fromRGB(awtColor.getRed(), awtColor.getGreen(), awtColor.getBlue());
     }
 
     public Material[] getOres() {

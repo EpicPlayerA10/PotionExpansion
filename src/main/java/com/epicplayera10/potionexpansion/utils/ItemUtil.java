@@ -1,7 +1,6 @@
 package com.epicplayera10.potionexpansion.utils;
 
-import com.epicplayera10.potionexpansion.Settings;
-
+import com.epicplayera10.potionexpansion.PotionExpansion;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
@@ -25,7 +24,7 @@ public class ItemUtil {
                     meta.addEnchant(Enchantment.LURE, 1, true);
                     meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                     meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-                    meta.setLore(Collections.singletonList(ChatColor.BLUE + ChatUtils.humanize(id) + " (" + formatTime(Settings.getPotionDuration()) + ")"));
+                    meta.setLore(Collections.singletonList(ChatColor.BLUE + ChatUtils.humanize(id) + " (" + formatTime(PotionExpansion.instance().getPluginConfiguration().potionsSight.duration) + ")"));
                 }
         );
     }

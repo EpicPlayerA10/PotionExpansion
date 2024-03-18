@@ -4,7 +4,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PotionSightEffect {
     private final PotionSightType type;
-    private long time;
+    private long time; // In seconds
 
     @ParametersAreNonnullByDefault
     public PotionSightEffect(PotionSightType type, long time) {
