@@ -25,7 +25,7 @@ public class PotionExpansionCommand implements CommandExecutor {
         if (args.length != 0) {
             if (args[0].equalsIgnoreCase("showEffects")) {
                 if (EffectsManager.hasAnyEffect(player)) {
-                    PotionExpansion.getInstance().getEffectsTask().showEffects(player, false);
+                    PotionExpansion.instance().getEffectsTask().showEffects(player, false);
                 } else {
                     player.sendMessage(ChatColors.color("&cYou don't have any effect!"));
                 }

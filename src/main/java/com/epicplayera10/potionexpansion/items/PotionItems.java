@@ -23,13 +23,13 @@ import java.util.Arrays;
 public class PotionItems {
 
     // Normal Items
-    public static final ItemStack mundanePotion = new CustomItemStack(Material.POTION, (itemMeta -> {
+    public static final ItemStack MUNDANE_POTION = new CustomItemStack(Material.POTION, (itemMeta -> {
         PotionMeta meta = (PotionMeta) itemMeta;
         meta.setBasePotionData(new PotionData(PotionType.MUNDANE));
     }));
 
     // Categories
-    public static final ItemGroup potionCategory = new ItemGroup(new NamespacedKey(PotionExpansion.getInstance(),
+    public static final ItemGroup POTION_CATEGORY = new ItemGroup(new NamespacedKey(PotionExpansion.instance(),
             "potionexpansion"),
             new CustomItemStack(Material.POTION, itemMeta -> {
                 PotionMeta meta = (PotionMeta) itemMeta;
@@ -115,41 +115,41 @@ public class PotionItems {
     // Sights
     public static final SlimefunItemStack COAL_SIGHT = ItemUtil.createCustomPotionItem("COAL_SIGHT",
             "&8&lCoalSight",
-            PotionSightType.COAL_SIGHT.getColor());
+            PotionSightType.COAL_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack IRON_SIGHT = ItemUtil.createCustomPotionItem("IRON_SIGHT",
             "&7&lIronSight",
-            PotionSightType.IRON_SIGHT.getColor());
+            PotionSightType.IRON_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack DIAMOND_SIGHT = ItemUtil.createCustomPotionItem("DIAMOND_SIGHT",
             "&b&lDiamondSight",
-            PotionSightType.DIAMOND_SIGHT.getColor());
+            PotionSightType.DIAMOND_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack GOLD_SIGHT = ItemUtil.createCustomPotionItem("GOLD_SIGHT",
             "&e&lGoldSight",
-            PotionSightType.GOLD_SIGHT.getColor());
+            PotionSightType.GOLD_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack LAPIS_SIGHT = ItemUtil.createCustomPotionItem("LAPIS_SIGHT",
             "&9&lLapisSight",
-            PotionSightType.LAPIS_SIGHT.getColor());
+            PotionSightType.LAPIS_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack REDSTONE_SIGHT = ItemUtil.createCustomPotionItem("REDSTONE_SIGHT",
             "&c&lRedstoneSight",
-            PotionSightType.REDSTONE_SIGHT.getColor());
+            PotionSightType.REDSTONE_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack EMERALD_SIGHT = ItemUtil.createCustomPotionItem("EMERALD_SIGHT",
             "&a&lEmeraldSight",
-            PotionSightType.EMERALD_SIGHT.getColor());
+            PotionSightType.EMERALD_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack QUARTZ_SIGHT = ItemUtil.createCustomPotionItem("QUARTZ_SIGHT",
             "&f&lQuartzSight",
-            PotionSightType.QUARTZ_SIGHT.getColor());
+            PotionSightType.QUARTZ_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack ANCIENT_DEBRIS_SIGHT = ItemUtil.createCustomPotionItem("ANCIENT_DEBRIS_SIGHT",
             "&4&lAncientDebrisSight",
-            PotionSightType.ANCIENT_DEBRIS_SIGHT.getColor());
+            PotionSightType.ANCIENT_DEBRIS_SIGHT.getBukkitColor());
 
     public static final SlimefunItemStack COPPER_SIGHT = ItemUtil.createCustomPotionItem("COPPER_SIGHT",
             "&6&lCopperSight",
-            PotionSightType.COPPER_SIGHT.getColor());
+            PotionSightType.COPPER_SIGHT.getBukkitColor());
 }

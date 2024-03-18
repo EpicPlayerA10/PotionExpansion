@@ -14,29 +14,36 @@ import org.bukkit.util.Vector;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class XRayUtil {
-    @ParametersAreNonnullByDefault
-    public static void showPathsToMaterial(Player player, Material material, Color color, int r) {
-        Location start = player.getLocation().clone().add(0, 1, 0);
-        Block startBlock = player.getLocation().getBlock();
+    public static List<Block> getOresInRadius(Location center, int radius, Collection<Material> materials) {
+        Block centerBlock = center.getBlock();
 
-        List<Block> veinsCache = new ArrayList<>();
+        List<Block> ores = new ArrayList<>();
 
-        for (int x = -r; x <= r; x++) {
-            for (int y = -r; y <= r; y++) {
-                for (int z = -r; z <= r; z++) {
-                    Block block = startBlock.getRelative(x, y, z);
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -radius; y <= radius; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    Block block = centerBlock.getRelative(x, y, z);
 
-                    if (block.getType() == material && !veinsCache.contains(block)) {
-                        List<Block> vein = Vein.find(block, 30);
-                        veinsCache.addAll(vein);
-
-                        drawLine(color, start, block.getLocation().clone().add(0.5, 0.5, 0.5), 0.3);
+                    if (materials.contains(block.getType()) && !ores.contains(block)) {
+                        ores.add(block);
                     }
                 }
             }
+        }
+
+        return ores;
+    }
+
+    @ParametersAreNonnullByDefault
+    public static void showPathsToBlocks(Player player, List<Block> blocks, Color color) {
+        Location start = player.getLocation().clone().add(0, 1, 0);
+
+        for (Block block : blocks) {
+            drawLine(color, start, block.getLocation().clone().add(0.5, 0.5, 0.5), 0.3);
         }
     }
 
@@ -49,8 +56,10 @@ public class XRayUtil {
         Vector p1 = point1.toVector();
         Vector p2 = point2.toVector();
         Vector vector = p2.clone().subtract(p1).normalize().multiply(space);
+
+        Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1f);
         for (double length = 0; length < distance; p1.add(vector)) {
-            world.spawnParticle(Particle.REDSTONE, p1.getX(), p1.getY(), p1.getZ(), 1, new Particle.DustOptions(color, 1f));
+            world.spawnParticle(Particle.REDSTONE, p1.getX(), p1.getY(), p1.getZ(), 1, dustOptions);
             length += space;
         }
     }

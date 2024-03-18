@@ -1,6 +1,6 @@
 package com.epicplayera10.potionexpansion.items;
 
-import com.epicplayera10.potionexpansion.Settings;
+import com.epicplayera10.potionexpansion.PotionExpansion;
 import com.epicplayera10.potionexpansion.api.effects.PotionSightEffect;
 import com.epicplayera10.potionexpansion.api.effects.PotionSightType;
 import com.epicplayera10.potionexpansion.api.effects.EffectsManager;
@@ -28,8 +28,8 @@ public class PotionSightItem extends SlimefunItem {
     }
 
     private ItemConsumptionHandler onConsume() {
-        return (e, p, item) -> {
-            EffectsManager.addEffect(p, new PotionSightEffect(potionSightType, Settings.getPotionDuration()));
+        return (event, player, item) -> {
+            EffectsManager.addEffect(player, new PotionSightEffect(potionSightType, PotionExpansion.instance().getPluginConfiguration().potionsSight.duration));
         };
     }
 }
