@@ -8,6 +8,7 @@ import com.epicplayera10.potionexpansion.tasks.EffectsTask;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,8 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+
+        setupMetrics();
 
         Config cfg = new Config(this);
 
@@ -80,5 +83,10 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
         }
 
         return instance.getServer().getScheduler().runTaskLater(instance, runnable, delay);
+    }
+
+    private void setupMetrics() {
+        int pluginId = 25564;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 }
