@@ -50,7 +50,7 @@ public class XRayUtil {
         Vector p2 = point2.toVector();
         Vector vector = p2.clone().subtract(p1).normalize().multiply(space);
         for (double length = 0; length < distance; p1.add(vector)) {
-            world.spawnParticle(Particle.REDSTONE, p1.getX(), p1.getY(), p1.getZ(), 1, new Particle.DustOptions(color, 1f));
+            world.spawnParticle(Particle.DUST, p1.getX(), p1.getY(), p1.getZ(), 1, new Particle.DustOptions(color, 1f));
             length += space;
         }
     }

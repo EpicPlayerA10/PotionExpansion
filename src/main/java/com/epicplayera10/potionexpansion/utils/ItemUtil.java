@@ -24,7 +24,7 @@ public class ItemUtil {
                     meta.setColor(color);
                     meta.addEnchant(Enchantment.LURE, 1, true);
                     meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                    meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+                    meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                     meta.setLore(Collections.singletonList(ChatColor.BLUE + ChatUtils.humanize(id) + " (" + formatTime(Settings.getPotionDuration()) + ")"));
                 }
         );
